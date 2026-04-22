@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Fly Box Карго | Карго из Китая и Турции в Кыргызстан</title>
+    <!-- Шрифты и иконки -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS анимации -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070b12;
+            color: #eef2fb;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* фон с лёгкой картой */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%231a2536\' fill-opacity=\'0.3\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Шапка — строгая, как у Boeing */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 32px;
+            background: rgba(5, 10, 18, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+
+        .logo i {
+            color: #3b82f6;
+            font-size: 2.2rem;
+            filter: drop-shadow(0 0 12px rgba(59,130,246,0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #b0c7e0;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        .track-btn {
+            background: #14212e;
+            border: 1px solid #2a3a4a;
+            padding: 10px 22px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            backdrop-filter: blur(4px);
+        }
+        .track-btn:hover {
+            background: #1f3142;
+            border-color: #3b82f6;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            background: rgba(59, 130, 246, 0.12);
+            color: #90caf9;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 28px;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #3b82f6, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #b0c9e8;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: #1e2a3a;
+            border-radius: 60px;
+            padding: 10px 24px;
+            font-weight: 600;
+            margin-right: 16px;
+            border: 1px solid #3b4a5e;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+            transition: 0.2s;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -8px #1e3a8a;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #475569;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.03);
+            border-color: #3b82f6;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 520px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 35px 50px -15px #00000080;
+            border: 1px solid rgba(255,255,255,0.08);
+            transform: perspective(1000px) rotateY(-1.5deg);
+            transition: 0.4s;
+        }
+        .hero-visual:hover { transform: perspective(1000px) rotateY(0deg); }
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85) contrast(1.1);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(8, 16, 28, 0.7);
+            backdrop-filter: blur(16px);
+            padding: 18px 28px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rating i { color: #fbbf24; margin-right: 5px; }
+
+        /* Статистика */
+        .stats {
+            display: flex;
+            gap: 60px;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .stat-item h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: white;
+        }
+        .stat-item p {
+            color: #9fb9da;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* Заголовки секций */
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+        .section-sub {
+            color: #a1bbdb;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .service-card {
+            background: rgba(15, 24, 37, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 40px 32px;
+            border-radius: 30px;
+            border: 1px solid #253141;
+            transition: all 0.25s;
+        }
+        .service-card:hover {
+            background: #1b283b;
+            border-color: #3b82f6;
+            transform: translateY(-10px);
+            box-shadow: 0 30px 30px -12px #000000b0;
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            color: #3b82f6;
+            margin-bottom: 24px;
+        }
+        .service-card h4 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: white;
+        }
+        .service-card p { color: #bdd1e8; }
+
+        /* Преимущества */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .advantage-item {
+            background: #0f1a26;
+            padding: 34px 32px;
+            border-radius: 28px;
+            border-left: 6px solid #2563eb;
+            transition: 0.2s;
+        }
+        .advantage-item i {
+            color: #3b82f6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* CTA адрес */
+        .cta-section {
+            background: linear-gradient(145deg, #0b1420, #03070e);
+            border-radius: 50px;
+            padding: 70px 60px;
+            text-align: left;
+            border: 1px solid #1e3142;
+            margin: 80px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .address-block { max-width: 500px; }
+        .address-block h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .address-line { margin: 20px 0; display: flex; gap: 15px; align-items: center; }
+        .whatsapp-btn {
+            background: #25d366;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Футер */
+        .footer {
+            padding: 50px 0 30px;
+            border-top: 1px solid #1f2c3c;
+            color: #9aaec2;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .advantage-grid { grid-template-columns: 1fr; }
+            .navbar { flex-wrap: wrap; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-box-open"></i> 
+            <span>Fly box</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Главная</a>
+            <a href="#">Услуги</a>
+            <a href="#">Отзывы</a>
+            <a href="#">Контакты</a>
+        </div>
+        <div class="track-btn">
+            <i class="fas fa-map-pin"></i> Кок-Жар, 23
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="hero-grid">
+                <div data-aos="fade-up" data-aos-duration="800">
+                    <span class="hero-badge"><i class="fas fa-star" style="color: gold;"></i> 4.9 • 131 оценка • 87 отзывов</span>
+                    <h1>
+                        Карго из <span class="hero-highlight">Китая и Турции</span><br>в Кыргызстан
+                    </h1>
+                    <p>
+                        Прямая доставка товаров в Бишкек и регионы. Прозрачные тарифы, свой ПВЗ в Кок-Жаре.
+                    </p>
+                    <div style="margin-bottom: 30px;">
+                        <span class="price-tag"><i class="fas fa-truck"></i> Авто — 2,9$ / кг</span>
+                        <span class="price-tag"><i class="fas fa-plane"></i> Авиа от 5,2$</span>
+                    </div>
+                    <div class="cta-group">
+                        <a href="https://wa.me/996550777030" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a>
+                        <a href="tel:+996550777030" class="btn-outline"><i class="fas fa-phone-alt"></i> +996 550 777 030</a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.95rem;"><i class="far fa-clock"></i> Сегодня 10:00 – 19:00</p>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="200">
+                    <div class="hero-visual">
+                        <!-- изображение склада/доставки (реалистичное) -->
+                        <img src="https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Fly Box Cargo в Кыргызстане">
+                        <div class="floating-badge">
+                            <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.9</span>
+                            <span style="margin:0 10px">|</span>
+                            <span><i class="fab fa-instagram"></i> 2 229 подписчиков</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Цифры -->
+        <div class="stats" data-aos="fade-up">
+            <div class="stat-item"><h3>87+</h3><p>отзывов</p></div>
+            <div class="stat-item"><h3>2 229</h3><p>подписчиков</p></div>
+            <div class="stat-item"><h3>4.9 ★</h3><p>рейтинг</p></div>
+            <div class="stat-item"><h3>2,9$</h3><p>авто/кг</p></div>
+        </div>
+
+        <!-- Услуги -->
+        <section style="margin: 80px 0;">
+            <h2 class="section-title" data-aos="fade-right">Полный цикл доставки</h2>
+            <p class="section-sub" data-aos="fade-up">Как у Boeing — надёжно, быстро, с отслеживанием</p>
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="50">
+                    <i class="fas fa-truck service-icon"></i>
+                    <h4>Автодоставка</h4>
+                    <p>Выгодный тариф <strong>2,9$/кг</strong> из Китая. Срок 12–18 дней, консолидация.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="150">
+                    <i class="fas fa-plane service-icon"></i>
+                    <h4>Авиа карго</h4>
+                    <p>Срочная доставка из Турции и Китая. От 5 дней, страхование груза.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="250">
+                    <i class="fas fa-warehouse service-icon"></i>
+                    <h4>ПВЗ Кок-Жар</h4>
+                    <p>Выдача в Бишкеке, мкр. Кок-Жар, 23. Цокольный этаж. Примерка и распаковка.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества (в стиле Boeing) -->
+        <section style="margin: 100px 0;">
+            <h2 class="section-title" data-aos="fade-right">Почему Fly box</h2>
+            <div class="advantage-grid">
+                <div class="advantage-item" data-aos="flip-left">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3 style="margin-bottom: 10px;">Полная прозрачность</h3>
+                    <p>Фиксированный курс, никаких скрытых платежей. Фотоотчёт при получении.</p>
+                </div>
+                <div class="advantage-item" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-clock"></i>
+                    <h3 style="margin-bottom: 10px;">Соблюдение сроков</h3>
+                    <p>Чёткий график вылетов и рейсов. Оповещения в WhatsApp.</p>
+                </div>
+                <div class="advantage-item" data-aos="flip-left" data-aos-delay="150">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3 style="margin-bottom: 10px;">Удобный ПВЗ</h3>
+                    <p>Кок-Жар, 23 — 3 минуты от остановки. Примерочная, зона распаковки.</p>
+                </div>
+                <div class="advantage-item" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fas fa-headset"></i>
+                    <h3 style="margin-bottom: 10px;">Поддержка 24/7</h3>
+                    <p>Консультация по закупке в Китае, помощь с 1688, Taobao, Poizon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок адреса и CTA (Boeing style) -->
+        <div class="cta-section" data-aos="fade-up">
+            <div class="address-block">
+                <h2>📍 Приезжайте в офис</h2>
+                <div class="address-line"><i class="fas fa-location-dot" style="color: #3b82f6;"></i> микрорайон Кок-Жар, 23, Бишкек (цокольный этаж)</div>
+                <div class="address-line"><i class="fas fa-subway"></i> Остановка «Кок Жар, ЖК» — 210 м</div>
+                <div class="address-line"><i class="far fa-calendar"></i> Пн–Вс 10:00 – 19:00</div>
+                <div style="margin-top: 30px;">
+                    <a href="https://wa.me/996550777030" target="_blank" class="btn-primary" style="background: #075e54;"><i class="fab fa-whatsapp"></i> WhatsApp +996 550 777 030</a>
+                </div>
+            </div>
+            <div style="font-size: 1.2rem; background: #0a121f; padding: 30px; border-radius: 30px; max-width: 320px;">
+                <i class="fab fa-instagram" style="color: #d62976;"></i> <strong>@fly_box.kg</strong><br>
+                2 229 подписчиков<br>
+                <span style="font-size: 0.9rem;">74 публикации • отзывы и распаковки</span>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                <div>© 2025 Fly box. Все права защищены.</div>
+                <div>
+                    <a href="#" style="color: #9aaec2; margin-right: 20px;">Политика конфиденциальности</a>
+                    <a href="#" style="color: #9aaec2;">2ГИС: Fly box Карго</a>
+                </div>
+                <div>
+                    <i class="fab fa-instagram"></i> <i class="fab fa-telegram"></i> <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+            <div style="margin-top: 30px; font-size: 0.8rem; color: #62748c;">
+                *Тарифы указаны ориентировочно. Точную стоимость уточняйте у менеджера.
+            </div>
+        </footer>
+    </main>
+
+    <!-- Анимации AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ once: false, duration: 800, easing: 'ease-out-cubic' });
+    </script>
+    <!-- Небольшой эффект параллакса для фона -->
+    <script>
+        window.addEventListener('scroll', function() {
+            let scrolled = window.pageYOffset;
+            let pattern = document.querySelector('.bg-pattern');
+            if (pattern) {
+                pattern.style.transform = `translateY(${scrolled * 0.05}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Box Карго | Доставка из Китая и Турции в Кыргызстан</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        :root {
+            --primary-blue: #004aad; /* Строгий синий цвет логистики */
+            --dark-blue: #022b69;
+            --accent-color: #ffb703; /* Акцентный желто-оранжевый */
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Шапка */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 32px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.2s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover { 
+            color: var(--primary-blue); 
+        }
+
+        .track-btn {
+            background: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: var(--white);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .track-btn:hover {
+            background: var(--dark-blue);
+            box-shadow: 0 4px 12px rgba(0, 74, 173, 0.3);
+        }
+
+        /* Hero секция */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            /* Фон: склады/контейнеры с синим затемнением */
+            background-image: linear-gradient(to right, rgba(2, 43, 105, 0.95) 30%, rgba(0, 74, 173, 0.7)), url('https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .price-highlight {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #25d366; /* WhatsApp зеленый для акцента */
+            border: none;
+            padding: 16px 36px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #fff;
+            transition: 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .btn-primary:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            padding: 14px 36px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--white);
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Статистика (поднята наверх из скриншотов) */
+        .stats-wrapper {
+            background: var(--white);
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .stat-item p {
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Заголовки секций */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        .section-line {
+            height: 4px;
+            width: 80px;
+            background: var(--accent-color);
+            margin: 0 auto 20px;
+        }
+
+        .section-sub {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 50px 30px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 74, 173, 0.1);
+            border-top-color: var(--accent-color);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+        }
+        
+        .service-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Преимущества */
+        .advantages-section {
+            background: var(--white);
+            padding: 100px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .advantage-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .adv-icon {
+            background: rgba(0, 74, 173, 0.05);
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+        
+        .advantage-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+        
+        .advantage-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Контакты */
+        .cta-section {
+            background: var(--primary-blue);
+            border-radius: 8px;
+            padding: 60px;
+            margin: 100px 0;
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+        
+        .address-block h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 25px; 
+        }
+        
+        .address-line { 
+            margin: 15px 0; 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            font-size: 1.1rem;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            font-size: 1.4rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 15px;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .contact-link:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+        
+        .contact-link i {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+
+        /* Футер */
+        .footer {
+            background: var(--dark-blue);
+            color: #94a3b8;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.6rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .advantage-grid { grid-template-columns: 1fr; }
+            .navbar { flex-direction: column; gap: 20px; padding: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .cta-section { padding: 40px 20px; }
+            .stats-wrapper { margin-top: 30px; padding: 20px; }
+            .price-highlight { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-box-open"></i> 
+            <span>FLY BOX</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+        <a href="tel:+996550777030" class="track-btn">
+            <i class="fas fa-phone-alt"></i> +996 550 777 030
+        </a>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <span class="hero-badge">Надежная карго-доставка</span>
+                <h1>Прямая доставка грузов из Китая и Турции в Кыргызстан</h1>
+                <p>
+                    Корпоративные стандарты логистики для вашего бизнеса и личных заказов. Прозрачные тарифы, соблюдение сроков и собственный ПВЗ в Бишкеке.
+                </p>
+                <div class="price-highlight">
+                    <span><i class="fas fa-truck" style="color: var(--white);"></i> Автодоставка: 2,9$ за кг</span>
+                    <span style="color: #cbd5e1; font-weight: 400; font-size: 1.2rem;">| Самая выгодная доставка</span>
+                </div>
+                <div class="cta-group">
+                    <a href="https://wa.me/996550777030" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a>
+                    <a href="#contacts" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Наш пункт выдачи</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="stats-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>4.9 <i class="fas fa-star" style="font-size: 1.8rem; color: var(--accent-color);"></i></h3>
+                    <p>Рейтинг в 2ГИС</p>
+                </div>
+                <div class="stat-item">
+                    <h3>131+</h3>
+                    <p>Довольных оценок</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2 229</h3>
+                    <p>Подписчиков в Instagram</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2,9$</h3>
+                    <p>Стоимость авто/кг</p>
+                </div>
+            </div>
+        </div>
+
+        <section style="margin-top: 100px;" id="services">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Полный цикл доставки</h2>
+                <div class="section-line"></div>
+                <p class="section-sub">Мы предлагаем надежные логистические решения с отслеживанием на каждом этапе пути.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                    <i class="fas fa-truck-loading service-icon"></i>
+                    <h4>Автодоставка из Китая</h4>
+                    <p>Выгодный тариф <strong>2,9$ за кг</strong>. Идеально подходит для коммерческих партий и сборных грузов. Тщательная консолидация на складе.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fas fa-plane-departure service-icon"></i>
+                    <h4>Авиа карго</h4>
+                    <p>Срочная экспресс-доставка из Турции и Китая. Строгое соблюдение транзитного времени для товаров, требующих оперативности.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-box-open service-icon"></i>
+                    <h4>ПВЗ в Кок-Жаре</h4>
+                    <p>Оборудованный пункт выдачи заказов. Удобная зона для проверки, взвешивания и распаковки ваших посылок при получении.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="advantages-section" id="advantages">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Корпоративные стандарты Fly Box</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="advantage-grid">
+                <div class="advantage-item" data-aos="fade-right">
+                    <div class="adv-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <div>
+                        <h3>Полная прозрачность</h3>
+                        <p>Фиксированный курс и никаких скрытых платежей. Вы точно знаете, за что платите. Предоставляем фотоотчёт при поступлении на склад.</p>
+                    </div>
+                </div>
+                <div class="advantage-item" data-aos="fade-left" data-aos-delay="100">
+                    <div class="adv-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h3>Соблюдение сроков</h3>
+                        <p>Чёткий график вылетов и авто-рейсов. Систематические оповещения о статусе вашего груза напрямую в WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="advantage-item" data-aos="fade-right" data-aos-delay="150">
+                    <div class="adv-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <div>
+                        <h3>Удобное расположение</h3>
+                        <p>Наш офис находится в мкр. Кок-Жар, 23 — всего в 3 минутах пешком от остановки. Комфортная парковка и доступ к складу.</p>
+                    </div>
+                </div>
+                <div class="advantage-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="adv-icon"><i class="fas fa-headset"></i></div>
+                    <div>
+                        <h3>Поддержка клиентов</h3>
+                        <p>Бесплатная консультация по закупке товаров на китайских площадках (1688, Taobao, Poizon) от наших специалистов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="cta-section" data-aos="fade-up" id="contacts">
+            <div class="address-block">
+                <h2>Центр выдачи заказов</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 30px; max-width: 500px; color: #cbd5e1;">
+                    Приезжайте к нам в офис для оформления заказа или получения груза. Ждем вас ежедневно в рабочие часы!
+                </p>
+                <div class="address-line"><i class="fas fa-location-dot" style="color: var(--accent-color);"></i> микрорайон Кок-Жар, 23, Бишкек (цокольный этаж)</div>
+                <div class="address-line"><i class="fas fa-bus" style="color: var(--accent-color);"></i> Остановка «Кок-Жар, ЖК» — 210 м</div>
+                <div class="address-line"><i class="fas fa-clock" style="color: var(--accent-color);"></i> Сегодня: 10:00 – 19:00</div>
+            </div>
+            
+            <div class="contact-card">
+                <h3>Связь с менеджером</h3>
+                <a href="https://wa.me/996550777030" target="_blank" class="contact-link">
+                    <i class="fab fa-whatsapp" style="color: #25d366;"></i>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--text-light);">Написать в WhatsApp</div>
+                        <div>+996 550 777 030</div>
+                    </div>
+                </a>
+                <a href="tel:+996550777030" class="contact-link">
+                    <i class="fas fa-phone" style="color: var(--primary-blue);"></i>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--text-light);">Позвонить нам</div>
+                        <div>+996 550 777 030</div>
+                    </div>
+                </a>
+                <a href="https://instagram.com/fly_box.kg" target="_blank" class="contact-link" style="margin-bottom: 0;">
+                    <i class="fab fa-instagram" style="color: #d62976;"></i>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--text-light);">Наш Instagram (74 публикации)</div>
+                        <div>@fly_box.kg</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: var(--white); font-size: 1.5rem;">
+                    <i class="fas fa-box-open" style="color: var(--accent-color);"></i> FLY BOX
+                </div>
+                <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                    <a href="#hero">Главная</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="https://2gis.kg/bishkek/firm/70000001083980455" target="_blank">Мы в 2ГИС</a>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; font-size: 0.9rem;">
+                <div>© 2026 Fly Box Карго. Все права защищены.</div>
+                <div style="color: #64748b;">*Тарифы указаны ориентировочно. Точную стоимость уточняйте у менеджера.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Инициализация анимаций появления
+        AOS.init({ 
+            once: true, 
+            duration: 800, 
+            easing: 'ease-out-cubic',
+            offset: 100
+        });
+
+        // Эффект параллакса для фона главного экрана
+        window.addEventListener('scroll', function() {
+            let scrolled = window.pageYOffset;
+            let hero = document.querySelector('.hero');
+            if (hero && scrolled < 800) {
+                hero.style.backgroundPositionY = (scrolled * 0.4) + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
